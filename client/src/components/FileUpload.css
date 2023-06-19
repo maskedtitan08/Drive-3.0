@@ -20,20 +20,21 @@
     box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
   }
   .textArea {
-    color: white;
+    color: rgb(207, 23, 23);
+    font-weight: 600;
   }
   
   .upload {
     border: 1px solid #13aa52;
     background-color: #13aa52;
-    color: #ffffff;
+    color: #0a0909;
     padding: 5px 10px;
     border-radius: 6px;
     margin-left: 10px;
   }
   
   .upload:hover {
-    border: 1px solid #13aa52;
+    border: 1px solid #028c3c;
     background-color: #a5efc1;
     color: #ffffff;
     padding: 5px 10px;

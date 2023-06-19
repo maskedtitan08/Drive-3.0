@@ -35,7 +35,8 @@ function App() {
         const address = await signer.getAddress();     // to show which account is connected
         setAccount(address);
 
-        let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+        let contractAddress = "0x6C329fFcF69bF076E66eD5643A26c8ad938dE7EF";
+        // let contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
         const contract = new ethers.Contract(
           contractAddress, Upload.abi, signer
         );
@@ -56,11 +57,11 @@ function App() {
       {!modalOpen && (<button className="share" onClick={() => setModalOpen(true)}> Share </button>)}{" "}
       {modalOpen && (<Modal setModalOpen={setModalOpen} contract={contract}></Modal>)}
       <div className="App">
-        <h1 style={{ color: "OrangeRed" }}>New generation file system</h1>
+        <h1 style={{ color: "OrangeRed" , fontFamily : "Arial, Helvetica, sans-serif"}}>New generation file system</h1>
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
-        <p style={{ color: "Teal" }} class="accountfont"> Account : {account ? account : "not connected"}</p>
+        <p class="accountfont"> Account : {account ? account : "not connected"}</p>
         <FileUpload account={account} provider={provider} contract={contract}></FileUpload>
         <Display account={account} contract={contract}></Display>
       </div>

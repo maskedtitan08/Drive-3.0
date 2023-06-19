@@ -6,6 +6,13 @@ const Modal = ({ setModalOpen, contract }) => {
     await contract.allow(address);
     setModalOpen(false);
   };
+  const disAllowing = async () => {
+    const address = document.querySelector(".address").value;    // jo address input liya usi ko use kiya hai
+                                                                // (.address) => address is className of input tag
+    await contract.disallow(address);
+    setModalOpen(false);
+  };
+  
   useEffect(() => {
     const accessList = async () => {
       const addressList = await contract.shareAccess();          // share access function of contract
@@ -28,11 +35,7 @@ const Modal = ({ setModalOpen, contract }) => {
         <div className="modalContainer">
           <div className="title">Share with</div>
           <div className="body">
-            <input
-              type="text"
-              className="address"
-              placeholder="Enter Address"
-            ></input>
+            <input type="text" className="address" placeholder="Enter Address"></input>
           </div>
           <form id="myForm">
             <select id="selectNumber">
@@ -40,15 +43,11 @@ const Modal = ({ setModalOpen, contract }) => {
             </select>
           </form>
           <div className="footer">
-            <button
-              onClick={() => {
-                setModalOpen(false);
-              }}
-              id="cancelBtn"
-            >
+            <button onClick={() => {setModalOpen(false);}} id="cancelBtn">
               Cancel
             </button>
             <button onClick={() => sharing()}>Share</button>
+            <button onClick={() => disAllowing()}>Revoke Access</button>
           </div>
         </div>
       </div>

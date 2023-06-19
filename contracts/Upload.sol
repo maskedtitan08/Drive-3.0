@@ -23,7 +23,7 @@ contract Upload{
         if(previousData[msg.sender][user]==true){
             for(uint i=0;i<accessList[msg.sender].length;i++){
                 if(accessList[msg.sender][i].user==user){
-                    accessList[msg.sender][i].access==true;
+                    accessList[msg.sender][i].access=true;
                 }
             }
         }
